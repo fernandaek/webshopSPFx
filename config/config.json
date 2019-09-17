@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "insta-market-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/instaMarket/InstaMarketWebPart.js",
+          "manifest": "./src/webparts/instaMarket/InstaMarketWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "InstaMarketWebPartStrings": "lib/webparts/instaMarket/loc/{locale}.js"
+  }
+}
