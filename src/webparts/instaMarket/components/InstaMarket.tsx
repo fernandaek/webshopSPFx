@@ -64,12 +64,16 @@ export default class InstaMarket extends React.Component<
                   {/* {this.state.cart.map(c => ( */}
                   <span className="empty">
                     {/* {c.ProductTitle} | Price: {c.ProductPrice} */}
-                    <span>{this.state.cart}</span>
+                    <span>
+                      {this.state.cart !== 0
+                        ? this.state.cart
+                        : "Empty basket!"}
+                    </span>
                   </span>
                 </div>
               </div>
               {this.state.items.map((item: ClassProdukter) => {
-                console.log(item);
+                // console.log(item);
                 return (
                   <div>
                     <Card style={{ width: "18rem" }}>
@@ -96,7 +100,8 @@ export default class InstaMarket extends React.Component<
                             item.Id,
                             item.ProductTitle,
                             item.ProductPrice,
-                            item.ProductCategory
+                            item.ProductCategory,
+                            item.ProductImage.Url
                           )}
                           // onClick={e => alert(e.target.id)}
                         >
@@ -127,7 +132,7 @@ export default class InstaMarket extends React.Component<
         this.setState({ items: customerCollection });
         console.log("Customer Collection: ", customerCollection);
         console.log("RESPONSE: ", response);
-        console.log("Image: ", customerCollection.ProductImage);
+        // console.log("Image: ", customerCollection.ProductImage);
       });
   }
 }
