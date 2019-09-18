@@ -10,6 +10,7 @@ export class ClassProdukter {
   public ProductPrice: string;
   public ProductCategory: string;
   public ProductImage: IUrl;
+  public Id: string;
 
   constructor(item: ISPListProduct) {
     console.log("Creating new item: ", item.Title);
@@ -18,6 +19,7 @@ export class ClassProdukter {
     this.ProductCategory = item.ECWS_x002e_Category;
     console.log(item.ECWS_x002e_ImageUrl);
     this.ProductImage = item.ECWS_x002e_ImageUrl;
+    this.Id = item.Id;
     // console.log(JSON.parse(item.ECWS_x002e_ImageUrl));
     // this.ProductImage = JSON.parse(item.ECWS_x002e_ImageUrl);
   }
