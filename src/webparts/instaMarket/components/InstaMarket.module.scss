@@ -1,4 +1,4 @@
-@import '~office-ui-fabric-react/dist/sass/References.scss';
+@import "~office-ui-fabric-react/dist/sass/References.scss";
 
 .instaMarket {
   .container {
@@ -10,7 +10,7 @@
   .row {
     @include ms-Grid-row;
     @include ms-fontColor-white;
-    background-color: $ms-color-themeDark;
+    // background-color: $ms-color-themeDark;
     padding: 20px;
   }
 
@@ -37,6 +37,36 @@
     @include ms-fontColor-white;
   }
 
+  #sidebar {
+    float: left;
+    background: #fff;
+    width: 275px;
+    padding: 13px 0 0 45px;
+    height: 1400px;
+    border-right: 1px solid #eee;
+  }
+  #sidebar h3 {
+    color: #262626;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 35px 0 10px 0;
+    letter-spacing: 1px;
+    clear: both;
+  }
+  #cart {
+    padding: 0px;
+  }
+  #cart .empty {
+    font-style: italic;
+    color: #a0a3ab;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+  #sidebar {
+    padding: 0;
+  }
+
   .button {
     // Our button
     text-decoration: none;
@@ -51,7 +81,8 @@
     // Basic Button
     outline: transparent;
     position: relative;
-    font-family: "Segoe UI WestEuropean","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+    font-family: "Segoe UI WestEuropean", "Segoe UI", -apple-system,
+      BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     font-size: $ms-font-size-m;
     font-weight: $ms-font-weight-regular;

@@ -10,6 +10,7 @@ import { Card, Button } from "react-bootstrap";
 
 interface IInstaMarketState {
   items: ClassProdukter[];
+  cart: ClassProdukter[];
 }
 
 export default class InstaMarket extends React.Component<
@@ -19,7 +20,19 @@ export default class InstaMarket extends React.Component<
   constructor(props: IInstaMarketProps) {
     super(props);
     this.state = {
-      items: []
+      items: [],
+      cart: [
+        {
+          ProductTitle: "Surface",
+          ProductCategory: "Computer",
+          ProductPrice: "12000",
+          ProductImage: {
+            Description: "Surface pro",
+            Url:
+              "https://images.unsplash.com/photo-1555340627-20a4c7029632?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60"
+          }
+        }
+      ]
     };
   }
   public render(): React.ReactElement<IInstaMarketProps> {
@@ -28,6 +41,19 @@ export default class InstaMarket extends React.Component<
         <div className={styles.container}>
           <div className={styles.row}>
             <div className={styles.column}>
+              <div
+                className="sidebar"
+                style={{ color: "black", float: "right" }}
+              >
+                <h3>CART</h3>
+                <div className="cart">
+                  {this.state.cart.map(c => (
+                    <span className="empty">
+                      {c.ProductTitle} | Price: {c.ProductPrice}
+                    </span>
+                  ))}
+                </div>
+              </div>
               {this.state.items.map((item: ClassProdukter) => {
                 console.log(item);
                 return (
