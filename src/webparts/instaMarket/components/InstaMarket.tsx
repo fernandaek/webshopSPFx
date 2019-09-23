@@ -45,8 +45,9 @@ export default class InstaMarket extends React.Component<
     // console.log("CLICKED!!!!!!!!!");
   }
 
-  private IncrementItem = () => {
+  private IncrementItem = e => {
     this.setState({ cart: this.state.cart + 1 });
+    console.log("EVENT: ", e.target);
   };
 
   public render(): React.ReactElement<IInstaMarketProps> {
@@ -95,15 +96,8 @@ export default class InstaMarket extends React.Component<
                         <Button
                           variant="primary"
                           id={item.Id}
-                          onClick={this.IncrementItem.bind(
-                            this,
-                            item.Id,
-                            item.ProductTitle,
-                            item.ProductPrice,
-                            item.ProductCategory,
-                            item.ProductImage.Url
-                          )}
-                          // onClick={e => alert(e.target.id)}
+                          onClick={this.IncrementItem.bind(this)}
+                          // onClick={e => console.log("button clicked on index: " + e.target.id)}
                         >
                           Add to cart
                         </Button>
