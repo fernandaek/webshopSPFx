@@ -1,4 +1,5 @@
 ## insta-market
+<img src="pic1.png">
 
 This is where you include your WebPart documentation.
 
@@ -24,4 +25,3 @@ gulp test - TODO
 gulp serve - TODO
 gulp bundle - TODO
 gulp package-solution - TODO
-<img src="pic1.png">
