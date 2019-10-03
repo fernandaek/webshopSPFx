@@ -7,9 +7,13 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-webpart-base';
 
+import { Environment, EnvironmentType } from '@microsoft/sp-core-library';
 import * as strings from 'InstaMarketWebPartStrings';
 import InstaMarket from './components/InstaMarket';
 import { IInstaMarketProps } from './components/IInstaMarketProps';
+import { IGetDataService, MockDataService, PnPDataService } from './components/GetDataService';
+import { sp } from 'sp-pnp-js';
+
 
 export interface IInstaMarketWebPartProps {
   description: string;
@@ -18,15 +22,32 @@ export interface IInstaMarketWebPartProps {
 export default class InstaMarketWebPart extends BaseClientSideWebPart<IInstaMarketWebPartProps> {
 
   public render(): void {
-    const element: React.ReactElement<IInstaMarketProps > = React.createElement(
+
+    let service: IGetDataService;
+
+    if (Environment.type === EnvironmentType.Local) {
+      service = new MockDataService();
+    } else {
+      service = new PnPDataService();
+    }
+
+    service.getData().then((result) => {
+      sp.web.currentUser.get().then((res) => {
+        const element: React.ReactElement<IInstaMarketProps > = React.createElement(
       InstaMarket,
       {
-        description: this.properties.description
+        description: this.properties.description,
+        produktList: result,          
+        handleSPDataUpdate: service.handleOrderList,
+        userId: res.Id,
+        orderAndProductHandler: service.handleOrderAndProduct  
       }
     );
 
     ReactDom.render(element, this.domElement);
-  }
+   });  
+  });
+}
 
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);

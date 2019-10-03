@@ -7,10 +7,10 @@ export interface IUrl {
 
 export class ClassProdukter {
   public ProductTitle: string;
-  public ProductPrice: string;
+  public ProductPrice: number;
   public ProductCategory: string;
   public ProductImage: IUrl;
-  public Id: string;
+  public Id: number;
 
   constructor(item: ISPListProduct) {
     // console.log("Creating new item: ", item.Title);

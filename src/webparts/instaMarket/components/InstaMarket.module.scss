@@ -1,6 +1,32 @@
 @import "~office-ui-fabric-react/dist/sass/References.scss";
 
+
+.spAppAndPropertyPanelContainer{
+  background-color: black;
+}
 .instaMarket {
+  .shoppingContainer {
+    color: blue;
+    
+  }
+  .deleteIcon {
+    color: red;
+    cursor: pointer;
+  }
+  .itemLiStyle {
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    float: left;
+    margin: 10px 5px;
+  }
+  .price {
+    color: orange;
+  }
+  .card-img-top {
+    height: 12rem;
+  }
+
   .container {
     max-width: 700px;
     margin: 0px auto;
